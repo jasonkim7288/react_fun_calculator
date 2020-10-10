@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, Fragment} from 'react';
 import { CalcHistoryContext } from '../contexts/CalcHistoryContext';
 import { Box, Typography, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Icon, Link } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles'
+import { makeStyles } from '@material-ui/styles'
 import axios from 'axios';
 
 const useStyles = makeStyles({

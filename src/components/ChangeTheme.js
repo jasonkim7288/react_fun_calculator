@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Box, FormControlLabel, Grid, Hidden, Switch, Typography, Icon } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/styles';
 
 const useStyles = makeStyles(theme => ({
   titleIcon: {
