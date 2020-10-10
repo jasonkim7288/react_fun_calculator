@@ -19,14 +19,14 @@ function App() {
 
   return (
     <CalcHistoryProvider>
-
+      <MuiThemeProvider theme={theme}>
         <CssBaseline />
         <Container maxWidth="lg">
           <ChangeTheme handleChangeTheme={handleChangeTheme}/>
           <Title />
           <CalcMain />
         </Container>
-
+      </MuiThemeProvider>
     </CalcHistoryProvider>
   );
 }
