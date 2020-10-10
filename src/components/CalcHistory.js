@@ -21,7 +21,7 @@ function CalcHistory() {
   const [history, setHistory] = useContext(CalcHistoryContext);
 
   useEffect(() => {
-    axios.get('http://localhost:8080/calc-history')
+    axios.get(`${process.env.REACT_APP_CALC_SERVER_URL}/calc-history`)
       .then(res => {
         setHistory(state => res.data);
       })
@@ -29,9 +29,9 @@ function CalcHistory() {
 
   const handleClick = (e) => {
     e.preventDefault();
-    axios.delete(`http://localhost:8080/calc-history/${e.target.id}`)
+    axios.delete(`${process.env.REACT_APP_CALC_SERVER_URL}/calc-history/${e.target.id}`)
       .then(res => {
-        return axios.get('http://localhost:8080/calc-history');
+        return axios.get(`${process.env.REACT_APP_CALC_SERVER_URL}/calc-history`);
       })
       .then(res => {
         setHistory(state => res.data);

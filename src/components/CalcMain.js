@@ -52,10 +52,10 @@ function CalcMain() {
           setExpArr([]);
           break;
         case 'exec':
-          axios.get(`http://localhost:8080?calc=${convertNumArrayToWordFunc(expArr)}`)
+          axios.get(`${process.env.REACT_APP_CALC_SERVER_URL}?calc=${convertNumArrayToWordFunc(expArr)}`)
             .then(res => {
               setResult(res.data.result);
-              axios.get('http://localhost:8080/calc-history')
+              axios.get(`${process.env.REACT_APP_CALC_SERVER_URL}/calc-history`)
                 .then(res => {
                   setHistory(state => res.data);
                   console.log('res:', res)
