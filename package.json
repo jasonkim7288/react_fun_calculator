@@ -34,5 +34,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "proxy": "http://calc-env.eba-v2wxgbha.ap-southeast-2.elasticbeanstalk.com/"
 }
