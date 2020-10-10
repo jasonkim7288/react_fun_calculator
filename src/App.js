@@ -9,7 +9,7 @@ import { MuiThemeProvider, CssBaseline} from '@material-ui/core';
 import { CalcHistoryProvider } from './contexts/CalcHistoryContext'
 
 function App() {
-  const [theme, setTheme] = useState(darkTheme);
+  const [theme, setTheme] = useState(lightTheme);
 
   const handleChangeTheme = (setDark) => {
     setDark === true ? setTheme(darkTheme) : setTheme(lightTheme);
