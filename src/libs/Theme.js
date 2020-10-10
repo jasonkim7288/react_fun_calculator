@@ -1,6 +1,5 @@
 import { createMuiTheme, responsiveFontSizes } from '@material-ui/core';
 import { blue, pink, deepOrange} from '@material-ui/core/colors'
-import { darken } from '@material-ui/core/styles/'
 
 export const lightTheme = responsiveFontSizes(
   createMuiTheme({
@@ -10,7 +9,7 @@ export const lightTheme = responsiveFontSizes(
         main: blue[700]
       },
       secondary: {
-        main: darken(pink.A400, 0.1)
+        main: pink[400]
       },
       background: {
         default: '#fff'
