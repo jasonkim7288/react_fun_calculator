@@ -30,7 +30,7 @@ function CalcMain() {
     } else if(!isNaN(num)) {
       if (isNaN(lastElementNum)) {
         setExpArr([...expArr, cmd]);
-      } else if(lastElement.length < 9){
+      } else if(lastElementNum < 100000){
         setExpArr([...restElements, lastElement + cmd]);
       }
     } else {

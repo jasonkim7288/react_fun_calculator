@@ -3,8 +3,12 @@ import { Box, Button, Grid, makeStyles, Typography } from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
   calcBtn: {
-    height: '70px',
-    minHeight: '70px',
+    height: '30px',
+    minHeight: '30px',
+    [theme.breakpoints.up('sm')]: {
+      height: '70px',
+      minHeight: '70px',
+    }
   }
 }))
 
