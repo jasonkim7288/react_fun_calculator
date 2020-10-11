@@ -27,9 +27,13 @@ function VisitCount() {
 
   return (
     <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
-      <MuiAlert elevation={6} variant="filled" onClose={handleClose} severity="success">
-      {visitCount && `People have used this app ${visitCount} times!`}
-      </MuiAlert>
+      { visitCount &&
+        (
+          <MuiAlert elevation={6} variant="filled" onClose={handleClose} severity="success">
+            {`People have used this app ${visitCount} times!`}
+          </MuiAlert>
+        )
+      }
     </Snackbar>
   )
 }
