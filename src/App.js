@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import './App.css';
-import ChangeTheme from './components/ChangeTheme';
 import Title from './components/Title';
-import { Button, Container } from '@material-ui/core';
+import { Container } from '@material-ui/core';
 import CalcMain from './components/CalcMain';
 import { lightTheme, darkTheme } from './libs/Theme';
 import { MuiThemeProvider, CssBaseline} from '@material-ui/core';
-import { CalcHistoryProvider } from './contexts/CalcHistoryContext'
+import { CalcHistoryProvider } from './contexts/CalcHistoryContext';
+import Navigation from './components/Navigation';
+import { VisitCountProvider } from './contexts/VisitCountContext';
 
 function App() {
   const [theme, setTheme] = useState(darkTheme);
@@ -19,14 +20,16 @@ function App() {
 
   return (
     <CalcHistoryProvider>
-      <MuiThemeProvider theme={theme}>
-        <CssBaseline />
-        <Container maxWidth="lg">
-          <ChangeTheme handleChangeTheme={handleChangeTheme}/>
-          <Title />
-          <CalcMain />
-        </Container>
-      </MuiThemeProvider>
+      <VisitCountProvider>
+        <MuiThemeProvider theme={theme}>
+          <CssBaseline />
+          <Container maxWidth="lg">
+            <Navigation handleChangeTheme={handleChangeTheme} />
+            <Title />
+            <CalcMain />
+          </Container>
+        </MuiThemeProvider>
+      </VisitCountProvider>
     </CalcHistoryProvider>
   );
 }

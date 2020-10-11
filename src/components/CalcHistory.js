@@ -54,7 +54,9 @@ function CalcHistory() {
               <TableHead>
                 <TableRow style={{fontSize: '1.5em'}}>
                   <TableCell className={classes.tableCell} key='exp' align='center' style={{ minWidth: '100px', maxWidth: '80%' }}>Expression</TableCell>
-                  <TableCell className={classes.tableCell} key='remove' align='center'>Delete</TableCell>
+                  <TableCell className={classes.tableCell} key='remove' align='center'>
+                    <Icon className='far fa-trash-alt'/>
+                  </TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>

@@ -7,12 +7,14 @@ import CalcExpression from './CalcExpression';
 import { convertNumArrayToWordFunc } from '../libs/convert';
 import axios from 'axios';
 import CalcResult from './CalcResult';
-import { CalcHistoryContext } from '../contexts/CalcHistoryContext'
+import { CalcHistoryContext } from '../contexts/CalcHistoryContext';
+import { VisitCountContext } from '../contexts/VisitCountContext';
 
 function CalcMain() {
   const [expArr, setExpArr] = useState([]);
   const [result, setResult] = useState(null);
   const [, setHistory] = useContext(CalcHistoryContext)
+  const [, setVisitCount] = useContext(VisitCountContext);
   const handleButton = (cmd) => {
     const num = parseInt(cmd);
     const lastElement = expArr.length === 0 ? null : expArr[expArr.length - 1];
@@ -55,6 +57,12 @@ function CalcMain() {
           axios.get(`${process.env.REACT_APP_CALC_SERVER_URL}?calc=${convertNumArrayToWordFunc(expArr)}`)
             .then(res => {
               setResult(res.data.result);
+
+              axios.get(`${process.env.REACT_APP_CALC_SERVER_URL}/count`)
+                .then(res => {
+                  setVisitCount(state => res.data.count);
+              })
+              
               axios.get(`${process.env.REACT_APP_CALC_SERVER_URL}/calc-history`)
                 .then(res => {
                   setHistory(state => res.data);

@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, createContext } from 'react';
 
-const CalcHistoryContext = React.createContext([{}, () => {}]);
+const CalcHistoryContext = createContext();
 
 const CalcHistoryProvider = ({ children }) => {
   const [history, setHistory] = useState([]);
