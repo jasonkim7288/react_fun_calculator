@@ -12,6 +12,7 @@ const useStyles = makeStyles({
     maxHeight: 460
   },
   tableCell: {
+    wordBreak: "break-word",
     fontSize: '1.5rem'
   }
 });
@@ -49,7 +50,7 @@ function CalcHistory() {
       <Box mb={10}>
         <Paper className={classes.root} elevation={3}>
           <TableContainer className={classes.container}>
-            <Table stickyHeader aria-label="sticky table">
+            <Table stickyHeader aria-label="sticky table" >
               <TableHead>
                 <TableRow style={{fontSize: '1.5em'}}>
                   <TableCell className={classes.tableCell} key='exp' align='center' style={{ minWidth: '100px', maxWidth: '80%' }}>Expression</TableCell>
@@ -60,7 +61,7 @@ function CalcHistory() {
                 {history.map(h => {
                   return (
                     <TableRow hover role="checkbox" tabIndex={-1} key={h._id}>
-                      <TableCell className={classes.tableCell} key='exp' align='left' style={{ overflowWrap: "break-word"}}>{`${h.expression} = ${h.result}`}</TableCell>
+                      <TableCell className={classes.tableCell} key='exp' align='left'>{`${h.expression} = ${h.result}`}</TableCell>
                       <TableCell className={classes.tableCell} key='remove' align='center'>
                         <Link  href="#"  color="error">
                           <Icon id={h._id} className='far fa-trash-alt' onClick={handleClick} />
